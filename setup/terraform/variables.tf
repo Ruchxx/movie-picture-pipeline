@@ -1,5 +1,7 @@
 variable "k8s_version" {
-  default = "1.25"
+  description = "Kubernetes version"
+  type        = string
+  default     = "1.32"
 }
 
 variable "enable_private" {
