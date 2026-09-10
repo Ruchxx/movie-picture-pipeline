@@ -58,7 +58,7 @@ jobs:
         id: ecr-login
       - run: |
           docker build \
-            --build-arg REACT_APP_MOVIE_API_URL= http://ab72fea3a2f684f7a9ff366863e8c2e7-1806808073.us-east-1.elb.amazonaws.com \
+            --build-arg REACT_APP_MOVIE_API_URL= http://ab72fea3a2f684f7a9ff366863e8c2e7-1806808073.us-east-1.elb.amazonaws.com 
             -t ${{ steps.ecr-login.outputs.registry }}/frontend:${{ github.sha }} .
           docker push ${{ steps.ecr-login.outputs.registry }}/frontend:${{ github.sha }}
 
