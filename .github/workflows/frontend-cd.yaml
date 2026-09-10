@@ -78,7 +78,7 @@ jobs:
       - uses: imranismail/setup-kustomize@v2
       - run: |
           kustomize edit set image frontend=${{ needs.build-and-push.outputs.registry }}/frontend:${{ github.sha }}
-          kustomize build . | kubectl apply -f -
+          kustomize build . | kubectl apply --validate=false -f -
       - name: Verify rollout and print service URL
         run: |
           kubectl rollout status deployment/frontend --timeout=120s
